@@ -681,25 +681,8 @@ class MainWindow(QMainWindow):
             self.browser_status.setText("Not detected")
 
     def _show_fullscreen_help(self) -> None:
-        box = QMessageBox(self)
-        box.setWindowTitle("Fullscreen within each window")
-        box.setIcon(QMessageBox.Icon.Information)
-        box.setTextFormat(Qt.TextFormat.PlainText)
-        box.setText("Enable the setting in LibreWolf yourself")
-        box.setInformativeText(
-            "1. Open LibreWolf and enter about:config.\n"
-            "2. Accept the notice if it appears.\n"
-            "3. Search for full-screen-api.ignore-widgets.\n"
-            "4. Record its current value; toggle the existing Boolean to true.\n"
-            "5. Close all LibreWolf windows, then launch QuadView.\n\n"
-            "If the preference is missing or locked, stop and check your browser version. "
-            "QuadView never edits your browser profile. The setting affects the profile, "
-            "including other browser windows. Restore the recorded value to undo it.\n\n"
-            "Use each video's fullscreen button. Check YouTube and another HTML5 player, "
-            "including switching among all four windows. Manual use was reported working; "
-            "compatibility still depends on your browser and the player."
-        )
-        box.exec()
+        from ..core.browser_setup import offer_first_run_setup
+        offer_first_run_setup(self, self.config_manager.path.parent, force=True)
 
     def _create_tray(self) -> None:
         self._tray: QSystemTrayIcon | None = None

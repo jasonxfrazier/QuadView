@@ -69,12 +69,13 @@ normally before starting another session.
 
 ## Video fullscreen
 
-In your normal LibreWolf profile, open `about:config`, search for
-`full-screen-api.ignore-widgets`, record its old value, then set the existing Boolean
-to `true`. Close LibreWolf and launch your QuadView session. Use each player's own
-fullscreen button. QuadView never changes this preference or writes browser profile files.
+Use **Fullscreen setup** to let QuadView configure LibreWolf for confined manual
+fullscreen. The Windows package also offers this on first launch. Accepting adds
+`full-screen-api.ignore-widgets = true` through LibreWolf's supported overrides
+file, preserving existing contents. Restart LibreWolf afterward. You can instead
+set the same preference yourself in `about:config`.
 
-Use each player?s fullscreen button manually after launching. QuadView only
+Use each player's fullscreen button manually after launching. QuadView only
 opens and arranges the browser windows.
 
 ## Settings and privacy
@@ -86,7 +87,8 @@ load defaults with a visible notice.
 
 Bounded diagnostic logs live in `%LOCALAPPDATA%\QuadView\logs`. They contain session
 events and counts, not URLs, page titles, contents, cookies or credentials. QuadView
-has no telemetry or proxy and never modifies LibreWolf pages or profiles. The
+has no telemetry or proxy and never modifies LibreWolf pages or profile files. Its
+optional fullscreen setup writes only LibreWolf's user overrides file. The
 user-requested Playwright scraper evaluates the link-reading expression in its
 own temporary browser. Selected website traffic is handled by LibreWolf normally.
 
@@ -137,3 +139,10 @@ browser URL identity contract; restored windows or concurrent user window creati
 can be ambiguous. QuadView rejects detected ambiguity and leaves unassigned windows
 untouched. It does not claim that timing alone proves the requested URL. Profile
 choosers and restore dialogs may need to be resolved in LibreWolf before retrying.
+
+## Windows installer
+
+Friends only need LibreWolf and `QuadViewSetup-0.1.0.exe`. The installer bundles
+Python, Qt and the link-fetching browser and creates desktop and Start menu
+shortcuts. See [Windows distribution](docs/windows-distribution.md) for building
+and release checks.

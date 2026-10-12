@@ -44,7 +44,7 @@ If the setting is already `true`, record it and leave it unchanged.
 6. If its value is `false`, use the toggle button to set it to `true`. If the preference is locked, report that condition rather than bypassing it.
 7. Close LibreWolf normally, including every window, before launching QuadView. Do not force-stop a remaining browser process.
 
-The change applies to the profile, not just to QuadView's four windows. QuadView does not make this change automatically or edit any profile files. To undo it later, return to the same preference and restore the value recorded in step 5. Use **Reset** only if the intention is to restore the browser's default; resetting and restoring a previously customized value are different operations. [Mozilla's configuration-editor instructions](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+The change applies to the profile, not just to QuadView's four windows. QuadView offers this setup with explicit confirmation on first launch of the Windows package and through Fullscreen setup. It writes the supported user overrides file and does not edit profile files. To undo it later, return to the same preference and restore the value recorded in step 5. Use **Reset** only if the intention is to restore the browser's default; resetting and restoring a previously customized value are different operations. [Mozilla's configuration-editor instructions](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
 
 ## Fullscreen player tests
 

@@ -1,0 +1,18 @@
+QuadView bundles third-party software; its licenses apply independently.
+Copies of available license texts are included in this directory and the
+Chromium directory includes its own LICENSE and credits resources.
+
+Python: https://www.python.org/downloads/ (PSF license)
+PySide6 / Qt / Shiboken: https://www.qt.io/qt-for-python (LGPLv3/GPLv3/commercial)
+Qt source: https://download.qt.io/official_releases/qt/
+PySide source: https://download.qt.io/official_releases/QtForPython/
+Qt libraries are dynamically linked and remain separate files in the installation.
+Playwright: https://github.com/microsoft/playwright-python (Apache-2.0)
+Chromium: https://www.chromium.org/ (BSD and third-party licenses)
+Chromium source: https://chromium.googlesource.com/chromium/src/
+pywin32: https://github.com/mhammond/pywin32 (PSF license)
+greenlet: https://github.com/python-greenlet/greenlet (MIT/PSF)
+pyee: https://github.com/jfh/pyee (MIT)
+PyInstaller bootloader: https://pyinstaller.org/ (GPL with distribution exception)
+
+LibreWolf is installed separately and is not included in this installer.

@@ -6,6 +6,9 @@ import sys
 
 
 def main() -> int:
+    if len(sys.argv) == 3 and sys.argv[1] == '--package-check':
+        from .package_check import run_check
+        return run_check(sys.argv[2])
     if sys.platform != "win32":
         print("QuadView requires Windows 10 or 11 and an existing LibreWolf installation.", file=sys.stderr)
         return 1
@@ -36,6 +39,9 @@ def main() -> int:
         configure_logging(config_manager.path.parent / "logs")
         window = MainWindow(config_manager, config_manager.load())
         window.show()
+        if getattr(sys, 'frozen', False):
+            from .core.browser_setup import offer_first_run_setup
+            offer_first_run_setup(window, config_manager.path.parent)
         result = app.exec()
         lock.unlock()
         return result

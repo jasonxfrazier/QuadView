@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from threading import Event
+import sys
 from urllib.parse import urlsplit
 
 from playwright.sync_api import Error, Page, TimeoutError as PlaywrightTimeout, sync_playwright
@@ -40,9 +41,11 @@ def get_links(url: str, *, cancelled: Event | None = None) -> list[str]:
             try:
                 browser = playwright.chromium.launch(headless=False, timeout=15_000)
             except Error as error:
+                recovery = ('Reinstall QuadView to restore its bundled browser.'
+                            if getattr(sys, 'frozen', False) else
+                            'Install it with: uv run playwright install chromium')
                 raise LinkFetchError(
-                    "Chromium could not start for link discovery. "
-                    "Install it with: uv run playwright install chromium"
+                    "Chromium could not start for link discovery. " + recovery
                 ) from error
             try:
                 page = browser.new_page()
